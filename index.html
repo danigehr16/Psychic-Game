@@ -55,9 +55,20 @@
             </footer>
         </div>
     </div>
+    <!-- i tried to complete this homework, but i just couldn't get it. as you can see i did write some more code even though it is little. I dont understand what code i need for certian situation. what i didn't get done on this project was having the numbers show up and be logged on the screen, showing wins/losses, showing missed guesses and then reseting. -->
     <!-- <script type="text/javascript" src="assets/javascript/game.js"></script>  -->
     <script>
         var alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+        var wins = 0;
+        var losses = 0;
+        var guesses = 9;
+        var guessesRemain = 9;
+        var guessedLetters = [];
+        var letterToGuess = null;
+
+        var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)]
+
 
         function isAnAlphabet(key) {
             if (alphabet.includes(key)) {
@@ -74,15 +85,15 @@
             if(isAnAlphabet(event.key) == false){
                 alert("That is not a letter");
                 
-                if(guesses (event.key) == false) {
-                if(guesses === computerGuess){
+                if(guessedLetters === computerGuess){
                     wins++;
+                    reset()
                     guesses= 9;
                     guessedLetters = [];
                 }
-                if(guesses != computerGuess){
-                    guessess --;
-                    guessedLetters.push(guesses);
+                if(guessedLetters != computerGuess){
+                    losses ++;
+                    guessedLetters.push(guessesRemain);
                 }
                 if(guesses === 0){
                    guesses = 9;
@@ -91,8 +102,15 @@
                 }
             }
             
-            }
-            //if guesses(key) == false{
+            
+        }
+        function guesses(key) {
+            // is key inside guessed letters if not pushed to guessedLetters and return false if it was already in guessed letters return true
+            // if key is in guessedLetters return true
+            // else add it to guessedLetters and return false
+        }
+
+        //if guesses(key) == false{
                 //compare key to the computers answer
                 //do everything else
                 //was that correct
@@ -103,23 +121,12 @@
             //}//
             //if guesses(key) == true
                 //alert("that was already guessed");
-        }
-        function guesses(key) {
-            // is key inside guessed letters if not pushed to guessedLetters and return false if it was already in guessed letters return true
-            // if key is in guessedLetters return true
-            // else add it to guessedLetters and return false
-        }
+        
 
-        var wins = 0;
-        var losses = 0;
-        var guesses = 9;
-        var guessesRemain = 9;
-        var guessedLetters = [];
-        var letterToGuess = null;
+        
 
 
-        var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)]
-
+        
 //variable for count
 //variable for computer choice
 //wins/ losses
