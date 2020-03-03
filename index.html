@@ -6,20 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psychic Game</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-   
+
 </head>
 
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">The Psychic Game</h1>
-          <p class="lead">Can you guess the letter the computer is thinking of?</p>
+            <h1 class="display-4">The Psychic Game</h1>
+            <p class="lead">Can you guess the letter the computer is thinking of?</p>
         </div>
-      </div>
+    </div>
 
-      <div id="game">
+    <div id="game">
         <ul class="list-group">
             <li class="list-group-item">
                 <span id="wins">Wins: </span>
@@ -34,7 +35,7 @@
                 <p id="let">Your Guesses so far: </p>
             </li>
         </ul>
-      </div>
+    </div>
 
     <div class="col-sm-1"></div>
     </div>
@@ -43,7 +44,8 @@
         <div class="col-md-12">
             <footer class="footer text-center push">
                 <div class="container">
-                    <p><a href="https://danigehr16.github.io/">About Danielle Gehr</a> | <a href="https://github.com/danigehr16/Psychic-Game">GitHub Repo</a>
+                    <p><a href="https://danigehr16.github.io/">About Danielle Gehr</a> | <a
+                            href="https://github.com/danigehr16/Psychic-Game">GitHub Repo</a>
                         <br>Danielle Gehr &copy; 2020 -
                         <script>
                             document.write(new Date().getFullYear())
@@ -53,7 +55,87 @@
             </footer>
         </div>
     </div>
-<script type="text/javascript" src="assets/javascript/game.js"></script> 
+    <!-- <script type="text/javascript" src="assets/javascript/game.js"></script>  -->
+    <script>
+        var alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+        function isAnAlphabet(key) {
+            if (alphabet.includes(key)) {
+                return true;
+
+            }
+            else {
+                return false;
+            }
+        }
+        document.onkeyup = function (event) {
+            console.log(event.key)
+            console.log(isAnAlphabet(event.key))
+            if(isAnAlphabet(event.key) == false){
+                alert("That is not a letter");
+                
+                if(guesses (event.key) == false) {
+                if(guesses === computerGuess){
+                    wins++;
+                    guesses= 9;
+                    guessedLetters = [];
+                }
+                if(guesses != computerGuess){
+                    guessess --;
+                    guessedLetters.push(guesses);
+                }
+                if(guesses === 0){
+                   guesses = 9;
+                   losses ++;
+                   guessedLetters = []; 
+                }
+            }
+            
+            }
+            //if guesses(key) == false{
+                //compare key to the computers answer
+                //do everything else
+                //was that correct
+                    //if so add wins++ and start over
+                    //if not guesses--;
+                        //if guesses == 0 
+                            //do something
+            //}//
+            //if guesses(key) == true
+                //alert("that was already guessed");
+        }
+        function guesses(key) {
+            // is key inside guessed letters if not pushed to guessedLetters and return false if it was already in guessed letters return true
+            // if key is in guessedLetters return true
+            // else add it to guessedLetters and return false
+        }
+
+        var wins = 0;
+        var losses = 0;
+        var guesses = 9;
+        var guessesRemain = 9;
+        var guessedLetters = [];
+        var letterToGuess = null;
+
+
+        var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)]
+
+//variable for count
+//variable for computer choice
+//wins/ losses
+//users guesses
+
+//generate a computer guess
+
+//gather users guess
+
+//evalaute users guess
+
+//store users guessedLetters
+
+//count wins lossses
+
+    </script>
 </body>
 
 </html>
